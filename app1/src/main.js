@@ -1,5 +1,6 @@
+import './plugins/element'
 import '../src/core/public-path'
-console.log("进入app1")
+
 import { lifeCycle, render } from "./core/life-cycle";
 
 /**

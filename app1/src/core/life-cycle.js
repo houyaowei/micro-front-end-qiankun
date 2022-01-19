@@ -3,9 +3,11 @@ import VueRouter from 'vue-router';
 import App from "@/App.vue";
 import store from "@/store";
 import routers from '@/router'
-Vue.config.productionTip = false;
 
-console.log('app1 life-cycle')
+Vue.config.productionTip = false;
+Vue.use(VueRouter)
+
+
 let router = null;
 let instance = null;
 /**

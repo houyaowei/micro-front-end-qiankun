@@ -1,6 +1,6 @@
 <template>
   <div>
-    Home.vue
+    app1 Home page
   </div>
 </template>
 

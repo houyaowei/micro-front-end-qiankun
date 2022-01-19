@@ -1,66 +1,37 @@
 <template>
   <div class="loginForm">
-    <a-form
-      name="loginForm"
-      ref="formRef"
-      :model="formState"
-      :rules="rules"
-      v-bind="formItemLayout"
-      @finish="handleFinish"
-      @finishFailed="handleFinishFailed"
-    >
-      <a-form-item has-feedback label="用户名" name="username">
-        <a-input v-model:value="formState.username" type="input" autocomplete="off" />
-      </a-form-item>
-      <a-form-item has-feedback label="密码" name="pass">
-        <a-input v-model:value="formState.pass" type="password" autocomplete="off" />
-      </a-form-item>
-      <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
-        <a-button type="primary" html-type="submit">提交</a-button>
-        <a-button style="margin-left: 10px" @click="resetForm">重置</a-button>
-      </a-form-item>
-    </a-form>
+    <el-form :inline="true" :model="formInline" class="demo-form-inline">
+      <el-form-item label="审批人">
+        <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+      </el-form-item>
+      <el-form-item label="活动区域">
+        <el-select v-model="formInline.region" placeholder="活动区域">
+          <el-option label="区域一" value="shanghai"></el-option>
+          <el-option label="区域二" value="beijing"></el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="onSubmit">查询</el-button>
+      </el-form-item>
+    </el-form>
   </div>
   
 </template>
 
 <script>
-import { reactive } from 'vue'
 export default {
   name: "Login",
-  setup() {
-    const state = reactive({
-      usename: '',
-      pass: ''
-    })
-    const rules = {
-      pass: [{ required: true, message: '请填写密码',trigger: 'blur' }],
-      username: [{ required: true, message: '请填写用户名',trigger: 'blur' }]
-    };
-    const formItemLayout= {
-      labelCol: { span: 6 }
-    }
-    const handleFinish = async (values)=> {
-      console.log(values)
-    }
-    const handleFinishFailed = async()=> {
-
-    }
-    const submit = ()=> {
-
-    }
-    const resetForm =()=> {
-
-    }
-
+  data(){
     return {
-      formState : state,
-      rules,
-      submit,
-      formItemLayout,
-      resetForm,
-      handleFinish,
-      handleFinishFailed
+      formInline: {
+        user: '',
+        region: ''
+      }
+    }
+  },
+  methods: {
+    onSubmit() {
+      
     }
   }
 }
