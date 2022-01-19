@@ -1,0 +1,61 @@
+{
+  "name": "app2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "build-deploy-config": "deploy-cli-service i",
+    "deploy:dev": "deploy-cli-service deploy --mode dev",
+    "deploy:test": "deploy-cli-service deploy --mode test",
+    "deploy:prod": "deploy-cli-service deploy --mode prod"
+  },
+  "dependencies": {
+    "apollo-boost": "^0.4.7",
+    "axios": "^0.19.2",
+    "core-js": "^2.6.12",
+    "element-ui": "^2.13.0",
+    "graphql": "^14.6.0",
+    "html2canvas": "^1.0.0-rc.7",
+    "jspdf": "^2.3.1",
+    "print-js": "^1.6.0",
+    "vue": "^2.5.17",
+    "vue-apollo": "^3.0.3",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.3",
+    "@vue/cli-plugin-eslint": "^3.0.3",
+    "@vue/cli-service": "^3.0.3",
+    "babel-eslint": "^10.1.0",
+    "deploy-cli-service": "^1.3.0",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
