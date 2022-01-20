@@ -8,8 +8,11 @@ import {
     start,
     registerMicroApps,
     setDefaultMountApp,
-    runAfterFirstMounted
+    runAfterFirstMounted,
+    initGlobalState
 } from 'qiankun'
+import { config } from '../../config/config'
+import appStore from './app-store'
 
 // 主应用渲染函数
 let app = null;
@@ -17,7 +20,6 @@ let app = null;
 let defaultApp = null
 //需要传递给子应用
 const msg = {}
-import { config } from '../../config/config'
 
 function registerApps(){
     const apps = config && config.map(i => {
@@ -58,6 +60,8 @@ function registerApps(){
     }
     //启动应用
     start({ prefetch: true });
+    //启用消息通信
+    appStore()
 
     runAfterFirstMounted((app) => {
         console.log('runAfterFirstMounted:', app)
