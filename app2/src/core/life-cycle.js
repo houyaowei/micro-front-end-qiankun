@@ -1,12 +1,16 @@
+/* eslint-disable */
+
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from "@/App.vue";
 import store from "@/store";
 import routers from '@/router'
+//注册子应用通信
+import subAppStore  from "./sub-app-store";
+
 Vue.config.productionTip = false;
 Vue.use(VueRouter)
 
-console.log('app2 life-cycle')
 let router = null;
 let instance = null;
 /**
@@ -18,6 +22,8 @@ let instance = null;
       console.log('app2 props:', props)
     },
     async mount(props) {
+      // 注册store
+      subAppStore(props)
       // 注册微应用实例化函数
       render(props);
     },
@@ -34,10 +40,10 @@ let instance = null;
 
 /**
  * @name 子应用实例化
- * 
+ *
  */
 const render = ({ routes, routerBase, container } = {}) => {
-  console.log('app1 render,routerBase:',routerBase, 'routes:', routes)
+  console.log('app2 render function, routerBase:',routerBase, 'routes:', routes)
   // Vue.config.productionTip = false;
   router = new VueRouter({
     base: window.__POWERED_BY_QIANKUN__ ? '/' + routerBase +'/' : '/',
@@ -48,8 +54,8 @@ const render = ({ routes, routerBase, container } = {}) => {
     router,
     store,
     render: (h) => h(App),
-  }).$mount(container ? container.querySelector('#app') : '#app');
-  
+  }).$mount(container ? container.querySelector('#app2') : '#app2');
+
 };
 
 export { lifeCycle, render };
