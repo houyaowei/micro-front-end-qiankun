@@ -1,24 +1,21 @@
 # portal
 
-## Project setup
+### 子应用注册
+在config/config.js文件声明子应用。portal启动时，该文件会被读取并转换成single-spa要求的参数
+
 ```
-yarn install
+{
+   defaultLoad: true,
+   name: 'app1',
+   url: 'http://localhost:6601'
+}
+
+
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+参数说明: 
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### babel-eslint
+- defaultLoad：启动后默认加载的应用，原则上只配置一个。如果有多个，默认加载第一个。
+- name：应用名称
+- url：子应用部署地址
 

@@ -3,7 +3,9 @@
 
 
 
-### 子应用访问
+### 子应用访问（各子路由正常加载）
+
+http://localhost:3001
 
 http://localhost:3001/app1
 
@@ -20,3 +22,8 @@ http://localhost:3001/app2
 - Nginx配置
 - docker配置
 
+
+
+### portal中配置子应用
+
+详见portal/README.md
